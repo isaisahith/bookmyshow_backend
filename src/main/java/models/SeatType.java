@@ -9,6 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SeatType extends BaseModel{
-    private int id;
+
     private String seatType;
 }

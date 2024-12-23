@@ -1,6 +1,6 @@
 package models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +11,11 @@ import java.util.List;
 @Setter
 public class Screen extends BaseModel{
     private String name;
+    @ManyToOne
     private Theatre theatre;
+    @OneToMany
     private List<Seat> seats;
+    @Enumerated(value = EnumType.ORDINAL)
+    @ElementCollection
     private List<Feature> features;
 }

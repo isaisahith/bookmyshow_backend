@@ -1,13 +1,14 @@
 package models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
 
-@Entity
+@Entity(name = "user_id")
 @Getter
 @Setter
 public class User extends BaseModel{
@@ -16,5 +17,6 @@ public class User extends BaseModel{
     private String email;
     private String firstName;
     private String lastName;
+    @OneToMany
     private List<Booking> bookings;
 }

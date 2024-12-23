@@ -2,6 +2,9 @@ package models;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +12,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ShowSeat extends BaseModel{
+
+    @ManyToOne
     private Seat seat;
+    @ManyToOne
     private Show show;
-    private ShowSeatType showSeatType;
+    @Enumerated(EnumType.STRING)
     private ShowSeatStatus showSeatStatus;
 }
