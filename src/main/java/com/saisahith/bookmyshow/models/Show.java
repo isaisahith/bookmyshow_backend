@@ -1,4 +1,4 @@
-package models;
+package com.saisahith.bookmyshow.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 
-@Entity
+@Entity(name = "movie_show")
 @Getter
 @Setter
 public class Show extends BaseModel{

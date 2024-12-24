@@ -1,5 +1,4 @@
-package models;
-
+package com.saisahith.bookmyshow.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -9,10 +8,10 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Seat extends BaseModel{
-    private String seat_name;
+public class ShowSeatType extends BaseModel{
+    @ManyToOne
+    private Show show;
     @ManyToOne
     private SeatType seatType;
-    private int row;
-    private int col;
+    private int price;
 }
