@@ -1,8 +1,9 @@
 package com.saisahith.bookmyshow;
 
+import com.saisahith.bookmyshow.controllers.RegionController;
+import com.saisahith.bookmyshow.controllers.TheatreController;
 import com.saisahith.bookmyshow.controllers.UserController;
-import com.saisahith.bookmyshow.dto.SignUpRequestDto;
-import com.saisahith.bookmyshow.dto.SignUpResponseDto;
+import com.saisahith.bookmyshow.dto.*;
 import com.saisahith.bookmyshow.models.BaseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +17,10 @@ public class BookmyshowApplication implements CommandLineRunner {
 
     @Autowired
     public UserController userController;
+    @Autowired
+    public TheatreController theatreController;
+    @Autowired
+    public RegionController regionController;
 
     public static void main(String[] args) {
         BaseModel baseModel = new BaseModel();
@@ -25,12 +30,23 @@ public class BookmyshowApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        SignUpRequestDto signUpRequestDto = new SignUpRequestDto();
+//        SignUpRequestDto signUpRequestDto = new SignUpRequestDto();
+//
+//        signUpRequestDto.setEmail("Sahith@gmail.com");
+//        signUpRequestDto.setPassword("123456");
+//
+//        SignUpResponseDto responseDto = userController.signUp(signUpRequestDto);
+//        System.out.println(responseDto.getMessage());
 
-        signUpRequestDto.setEmail("Sahith@gmail.com");
-        signUpRequestDto.setPassword("123456");
 
-        SignUpResponseDto responseDto = userController.signUp(signUpRequestDto);
-        System.out.println(responseDto.getMessage());
+
+
+
+
+
+
+
+
+
     }
 }
