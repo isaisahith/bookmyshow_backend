@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class CreateTheatreRequestDto {
-    private String region;
+    private int region_id;
     private String address;
     private String name;
 

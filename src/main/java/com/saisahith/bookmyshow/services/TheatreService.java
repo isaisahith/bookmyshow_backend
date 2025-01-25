@@ -9,7 +9,9 @@ import com.saisahith.bookmyshow.repositories.TheareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TheatreService {
@@ -20,21 +22,41 @@ public class TheatreService {
     public RegionRepository regionRepository;
 
     public Theatre createTheatre(
-            String region,
+            int region_id,
             String name,
             String address
 
-    ) {
+    ) throws Exception {
 
-        Region regionObj = new Region();
-        regionObj.setName(region);
-        regionRepository.save(regionObj);
+        Optional<Region> region = regionRepository.findById(region_id);
+
+
+
+
+        if (region.isEmpty()) {
+            throw new Exception("Region not found");
+        }
+
+
+        Region regionObj = region.get();
+
         Theatre theatreObj = new Theatre();
         theatreObj.setAddress(address);
         theatreObj.setRegion(regionObj);
         theatreObj.setTheatre_name(name);
         theatreRepository.save(theatreObj);
+
         return  theatreObj;
+    }
+
+    public List<Theatre> getAllTheatre(int region_id) throws Exception {
+        Optional<Region> region = regionRepository.findById(region_id);
+        if (region.isEmpty()) {
+            throw new Exception("Region not found");
+        }
+        List<Theatre> theatres = new ArrayList<>();
+        theatres = theatreRepository.findByRegion(region.get());
+        return theatres;
     }
 
 }

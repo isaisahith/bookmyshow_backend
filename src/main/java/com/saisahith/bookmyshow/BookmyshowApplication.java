@@ -1,11 +1,9 @@
 package com.saisahith.bookmyshow;
 
+import com.saisahith.bookmyshow.controllers.RegionController;
 import com.saisahith.bookmyshow.controllers.TheatreController;
 import com.saisahith.bookmyshow.controllers.UserController;
-import com.saisahith.bookmyshow.dto.CreateTheatreRequestDto;
-import com.saisahith.bookmyshow.dto.CreateTheatreResponseDto;
-import com.saisahith.bookmyshow.dto.SignUpRequestDto;
-import com.saisahith.bookmyshow.dto.SignUpResponseDto;
+import com.saisahith.bookmyshow.dto.*;
 import com.saisahith.bookmyshow.models.BaseModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +19,8 @@ public class BookmyshowApplication implements CommandLineRunner {
     public UserController userController;
     @Autowired
     public TheatreController theatreController;
+    @Autowired
+    public RegionController regionController;
 
     public static void main(String[] args) {
         BaseModel baseModel = new BaseModel();
@@ -38,13 +38,15 @@ public class BookmyshowApplication implements CommandLineRunner {
 //        SignUpResponseDto responseDto = userController.signUp(signUpRequestDto);
 //        System.out.println(responseDto.getMessage());
 
-        CreateTheatreRequestDto theatreRequestDto = new CreateTheatreRequestDto();
-        theatreRequestDto.setRegion("Kovur");
-        theatreRequestDto.setAddress("Kovur, Main Road, Mandhabayata");
-        theatreRequestDto.setName("Srinivasa");
 
-        CreateTheatreResponseDto response = theatreController.craeteTheatre(theatreRequestDto);
-        System.out.println(response.getMessage());
+
+
+
+
+
+
+
+
 
     }
 }
