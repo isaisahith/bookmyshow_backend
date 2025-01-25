@@ -1,6 +1,9 @@
 package com.saisahith.bookmyshow;
 
+import com.saisahith.bookmyshow.controllers.TheatreController;
 import com.saisahith.bookmyshow.controllers.UserController;
+import com.saisahith.bookmyshow.dto.CreateTheatreRequestDto;
+import com.saisahith.bookmyshow.dto.CreateTheatreResponseDto;
 import com.saisahith.bookmyshow.dto.SignUpRequestDto;
 import com.saisahith.bookmyshow.dto.SignUpResponseDto;
 import com.saisahith.bookmyshow.models.BaseModel;
@@ -16,6 +19,8 @@ public class BookmyshowApplication implements CommandLineRunner {
 
     @Autowired
     public UserController userController;
+    @Autowired
+    public TheatreController theatreController;
 
     public static void main(String[] args) {
         BaseModel baseModel = new BaseModel();
@@ -25,12 +30,21 @@ public class BookmyshowApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        SignUpRequestDto signUpRequestDto = new SignUpRequestDto();
+//        SignUpRequestDto signUpRequestDto = new SignUpRequestDto();
+//
+//        signUpRequestDto.setEmail("Sahith@gmail.com");
+//        signUpRequestDto.setPassword("123456");
+//
+//        SignUpResponseDto responseDto = userController.signUp(signUpRequestDto);
+//        System.out.println(responseDto.getMessage());
 
-        signUpRequestDto.setEmail("Sahith@gmail.com");
-        signUpRequestDto.setPassword("123456");
+        CreateTheatreRequestDto theatreRequestDto = new CreateTheatreRequestDto();
+        theatreRequestDto.setRegion("Kovur");
+        theatreRequestDto.setAddress("Kovur, Main Road, Mandhabayata");
+        theatreRequestDto.setName("Srinivasa");
 
-        SignUpResponseDto responseDto = userController.signUp(signUpRequestDto);
-        System.out.println(responseDto.getMessage());
+        CreateTheatreResponseDto response = theatreController.craeteTheatre(theatreRequestDto);
+        System.out.println(response.getMessage());
+
     }
 }
